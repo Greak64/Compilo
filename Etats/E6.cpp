@@ -23,8 +23,12 @@ bool E6::transition(Automate& automate, Symbole * symbole)
     case Symbole::PAR_FERMANT :
         automate.decalage(symbole, new E9);
 		break;
-	default :
-		break;
+    default :
+        std::cout << "Error non handle transition " << name << " ";
+        symbole->print();
+        std::cout<< std::endl;
+        return false;
+        break;
 	}
 	return true;
 }

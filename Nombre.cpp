@@ -7,7 +7,7 @@
 
 #include "Nombre.h"
 
-Nombre::Nombre(int pvaleur) : Symbole(Type::NOMBRE), valeur(pvaleur)
+Nombre::Nombre(int pvaleur) : Symbole(Type::VAL), valeur(pvaleur)
 {}
 
 Nombre::~Nombre()

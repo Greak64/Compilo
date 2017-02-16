@@ -12,17 +12,28 @@
 
 bool E7::transition(Automate& automate, Symbole * symbole)
 {
-	switch(symbole->getId())
+    auto tmp = symbole->getId();
+
+    if(tmp == Symbole::MULT )
     {
-	case Symbole::MULT :
         automate.decalage(symbole, new E5);
-        break;
-	default :
-        //Expr *s1 = automate.popSymbole();
-        //automate.popEtDetruireSymbole();
-        //Expr *s2 = automate.popSymbole();
-        //automate.reduction(3, new ExprPlus(s1, s2));
-		break;
-	}
+    }
+    else if(tmp == Symbole::PLUS ||
+            tmp == Symbole::PAR_FERMANT ||
+            tmp == Symbole::END)
+    {
+        Expr * s1 = (Expr*) automate.popSymbole();
+        automate.popEtDetruireSymbole();
+        Expr * s2 = (Expr*) automate.popSymbole();
+        automate.reduction(3, new ExprPlus(s1, s2));
+    }
+    else
+    {
+        std::cout << "Error non handle transition " << name << " ";
+        symbole->print();
+        std::cout<< std::endl;
+        return false;
+    }
+
 	return true;
 }

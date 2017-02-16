@@ -10,12 +10,13 @@
 
 #include "Automate.h"
 #include <string>
+#include <iostream>
 
 class Etat {
 public:
-	Etat(std::string pname) : name(pname){};
+    Etat(std::string pname) : name(pname){}
 	virtual ~Etat() = default;
-	void print() const;
+    void print() const { std::cout << name << "  "; }
 	virtual bool transition(Automate & automate, Symbole * symbole) = 0;
 
 protected:

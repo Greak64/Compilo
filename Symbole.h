@@ -12,7 +12,7 @@ class Symbole {
 public:
 
 	enum Type {
-		NOMBRE,
+        VAL,
 		EXPR,
 		PAR_OUVRANT,
 		PAR_FERMANT,

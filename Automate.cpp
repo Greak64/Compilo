@@ -41,32 +41,44 @@ void Automate::lancer()
     std::string chaine;
     std::getline(std::cin,chaine);
 
-    lex.setFlux(chaine);
+    bool run = lex.setFlux(chaine);
 
-     int index = 1;
+    lex.lecture();
 
-    while(lex.lecture())
+    while(run)
     {
-        if(lex.prochainSymbole() != nullptr)
-            std::cout << "Symbole n " << index++ << " : "  << lex.prochainSymbole()->getId() << std::endl;
+        Symbole * symbole = lex.prochainSymbole();
+        Etat * state = pileEtats.back();
 
-        //Symbole * symbole = lex.prochainSymbole();
-        //if(!pileEtats.back()->transition(*this, symbole)) break;
+        state->print();
+        symbole->print();
+        std::cout << "\n----------------------" << std::endl;
+        if(!state->transition(*this, symbole))
+        {
+            run = false;
+        }
     }
 
+    std::cout << "\nExpression -->  " << std::endl;
+    for(auto s : pileSymboles)
+    {
+        s->print();
+        std::cout << std::endl;
+    }
 }
 
 void Automate::decalage(Symbole* symbole, Etat* etat)
 {
     pileSymboles.push_back(symbole);
     pileEtats.push_back(etat);
+    lex.lecture();
 }
 
 void Automate::reduction(int n, Symbole* symbole)
 {
     for (int i = 0; i < n; ++i)
     {
-        delete pileEtats.back();
+        //delete pileEtats.back();
         pileEtats.pop_back();
     }
     lex.ajouterSymbole(symbole);

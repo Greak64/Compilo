@@ -19,8 +19,15 @@ bool E1::transition(Automate& automate, Symbole * symbole)
 	case Symbole::MULT :
         automate.decalage(symbole, new E5);
         break;
-	default :
-		break;
+    case Symbole::END :
+        return false; // On accepte !
+        break;
+    default :
+        std::cout << "Error non handle transition " << name << " ";
+        symbole->print();
+        std::cout<< std::endl;
+        return false;
+        break;
 	}
 	return true;
 }

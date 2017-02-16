@@ -14,7 +14,7 @@ bool E5::transition(Automate& automate, Symbole * symbole)
 {
     switch(symbole->getId())
     {
-    case Symbole::NOMBRE :
+    case Symbole::VAL :
         automate.decalage(symbole, new E3);
         break;
     case Symbole::PAR_OUVRANT :
@@ -24,6 +24,10 @@ bool E5::transition(Automate& automate, Symbole * symbole)
         automate.decalage(symbole, new E8);
         break;
     default :
+        std::cout << "Error non handle transition " << name << " ";
+        symbole->print();
+        std::cout<< std::endl;
+        return false;
         break;
     }
 	return true;

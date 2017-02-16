@@ -18,19 +18,24 @@ public:
 	~Lexer() = default;
 
 	Symbole * prochainSymbole();
-    void ajouterSymbole(Symbole *);
-    bool lecture();
-    void setFlux(std::string stream);
+    void ajouterSymbole(Symbole *symbole);
+    void lecture();
+    bool setFlux(std::string stream);
 
-protected:
+private:
     std::string flux;
 	unsigned int lectureFlux; // Premier caractère non lu
 	unsigned int consomFlux; // Premier caractère non consommé
 	Symbole * prochain;
 
-private:
-    bool analyseToken(char token);
-    char getCharFromFlux();
+    char token;
+
+    bool analyseToken();
+    bool nextToken();
+
+
+
+
 };
 
 #endif /* LEXER_H_ */

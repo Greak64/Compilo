@@ -9,6 +9,7 @@
 #include "E1.h"
 #include "E3.h"
 #include "E2.h"
+#include <iostream>
 
 bool E0::transition(Automate& automate, Symbole * symbole)
 {
@@ -20,11 +21,15 @@ bool E0::transition(Automate& automate, Symbole * symbole)
 	case Symbole::PAR_OUVRANT :
 		automate.decalage(symbole, new E2);
 		break;
-	case Symbole::NOMBRE :
+    case Symbole::VAL :
 		automate.decalage(symbole, new E3);
 		break;
-	default :
-		break;
+    default :
+        std::cout << "Error non handle transition " << name << " ";
+        symbole->print();
+        std::cout<< std::endl;
+        return false;
+        break;
 	}
 	return true;
 }

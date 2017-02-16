@@ -25,43 +25,48 @@ Lexer::Lexer() : lectureFlux(0), consomFlux(0), prochain(nullptr)
 
 Symbole * Lexer::prochainSymbole()
 {
-    consomFlux = lectureFlux;
+    lectureFlux = consomFlux;
     return prochain;
 }
 
-void Lexer::ajouterSymbole(Symbole *)
+void Lexer::ajouterSymbole(Symbole * symbole)
 {
-
+    --consomFlux;
+    prochain = symbole;
 }
 
-bool Lexer::lecture()
+void Lexer::lecture()
 {
-    if(lectureFlux >= flux.size()) return false;
+    ++consomFlux;
+    // On regarde le prochain character
+    // Si il n'y en a pas, on peut sortir avec le symbole END
+    do{
+        if(!nextToken())
+        {
+            prochain = new Symbole(Symbole::Type::END);
+            return;
+        }
+    }while(std::find(spaces.begin(), spaces.end(), token) != spaces.end());
 
-    char token = getCharFromFlux();
+    // On identifie le token
+    analyseToken();
+}
 
-    while(std::find(spaces.begin(), spaces.end(), token) != spaces.end())
+bool Lexer:: setFlux(std::string stream)
+{
+    if(!stream.empty())
     {
-        if(lectureFlux < flux.size())
-            token = getCharFromFlux();
-        else
-            return false;
+        lectureFlux = 0;
+        consomFlux = 0;
+        prochain = nullptr;
+
+        flux = stream;
+        return true;
     }
-
-    return analyseToken(token);
+    return false;
 }
 
-void Lexer::setFlux(std::string stream)
-{
-    lectureFlux = 0;
-    consomFlux = 0;
-    prochain = nullptr;
-
-    flux = stream;
-
-}
-
-bool Lexer::analyseToken(char token)
+bool Lexer::analyseToken()
 {
     if(std::find(operators.begin(), operators.end(), token) != operators.end())
     {
@@ -72,17 +77,15 @@ bool Lexer::analyseToken(char token)
         std::string number;
         number += token;
 
-        while(lectureFlux < flux.size())
+        while(nextToken())
         {
-            token = getCharFromFlux();
             if(isDigit(token))
             {
+                ++consomFlux;
                 number += token;
             }
-            else
-            {
-                break;
-            }
+            else break;
+
         }
         prochain = new Nombre(std::atoi(number.c_str()));
     }
@@ -96,8 +99,14 @@ bool Lexer::analyseToken(char token)
     return true;
 }
 
-char Lexer::getCharFromFlux()
-{
+bool Lexer::nextToken()
+{ 
+    if(lectureFlux >= flux.size())
+    {
+        return false;
+    }
+
+    token = flux.at(lectureFlux);
     ++lectureFlux;
-    return flux.at(lectureFlux - 1);
+    return true;
 }
