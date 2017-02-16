@@ -1,0 +1,17 @@
+INPUT(
+./debug\main.o
+./debug\Automate.o
+./debug\Lexer.o
+./debug\Nombre.o
+./debug\Symbole.o
+./debug\E0.o
+./debug\E1.o
+./debug\E2.o
+./debug\E3.o
+./debug\E4.o
+./debug\E5.o
+./debug\E6.o
+./debug\E7.o
+./debug\E8.o
+./debug\E9.o
+);

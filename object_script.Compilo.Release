@@ -1,0 +1,17 @@
+INPUT(
+./release\main.o
+./release\Automate.o
+./release\Lexer.o
+./release\Nombre.o
+./release\Symbole.o
+./release\E0.o
+./release\E1.o
+./release\E2.o
+./release\E3.o
+./release\E4.o
+./release\E5.o
+./release\E6.o
+./release\E7.o
+./release\E8.o
+./release\E9.o
+);
