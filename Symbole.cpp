@@ -32,7 +32,7 @@ Symbole::Symbole(char token)
 
 Symbole::~Symbole() {}
 
-void Symbole::print()
+void Symbole::print() const
 {
 	std::cout << id << std::endl;
 }

@@ -24,7 +24,7 @@ public:
 	Symbole(char token);
 	virtual ~Symbole();
 
-	void print();
+    void print() const;
 	operator int() const;
 
 	Type getId() const;

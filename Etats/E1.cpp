@@ -6,17 +6,19 @@
  */
 
 #include "E1.h"
+#include "E4.h"
+#include "E5.h"
 
 bool E1::transition(Automate& automate, Symbole * symbole)
 {
 	switch(symbole->getId())
 	{
-	case Symbole::EXPR :
+    case Symbole::PLUS :
+        automate.decalage(symbole, new E4);
 		break;
 	case Symbole::MULT :
-		break;
-	case Symbole::NOMBRE :
-		break;
+        automate.decalage(symbole, new E5);
+        break;
 	default :
 		break;
 	}

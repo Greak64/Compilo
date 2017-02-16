@@ -13,10 +13,9 @@
 
 class Expr : public Symbole {
 public:
-	Expr() : Symbole(EXPR) {};
-	virtual ~Expr();
-	void print() const;
-	virtual double eval(const std::map<std::string,double> & valeur) = 0;
+    Expr() : Symbole(EXPR) {}
+    virtual ~Expr() {}
+    virtual int eval() const = 0;
 
 protected:
 

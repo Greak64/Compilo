@@ -19,9 +19,12 @@ public:
 	Automate();
 	~Automate();
 
+    Symbole* popSymbole();
+    void popEtDetruireSymbole();
+
 	void lancer();
 	void decalage(Symbole * symbole, Etat * etat);
-	void reduction(int n, Symbole * symbole);
+    void reduction(int n, Symbole * symbole);
 
 private:
 	std::vector<Symbole *> pileSymboles;

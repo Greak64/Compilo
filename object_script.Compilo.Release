@@ -14,4 +14,7 @@ INPUT(
 ./release\E7.o
 ./release\E8.o
 ./release\E9.o
+./release\ExprPlus.o
+./release\ExprMult.o
+./release\ExprPar.o
 );

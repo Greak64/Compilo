@@ -20,6 +20,19 @@ Automate::~Automate()
 	for(auto s : pileSymboles) delete s;
 }
 
+Symbole* Automate::popSymbole()
+{
+    Symbole* back = pileSymboles.back();
+    pileSymboles.pop_back();
+    return back;
+}
+
+void Automate::popEtDetruireSymbole()
+{
+    delete pileSymboles.back();
+    pileSymboles.pop_back();
+}
+
 void Automate::lancer()
 {
 	Symbole * symbole = lex.prochainSymbole();
@@ -44,6 +57,11 @@ void Automate::decalage(Symbole* symbole, Etat* etat)
 
 void Automate::reduction(int n, Symbole* symbole)
 {
-
+    for (int i = 0; i < n; ++i)
+    {
+        delete pileEtats.back();
+        pileEtats.pop_back();
+    }
+    //pileSymboles.push_back(symbole);
 }
 

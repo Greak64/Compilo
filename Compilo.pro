@@ -17,7 +17,10 @@ SOURCES += main.cpp \
     Etats/E6.cpp \
     Etats/E7.cpp \
     Etats/E8.cpp \
-    Etats/E9.cpp
+    Etats/E9.cpp \
+    Expr/ExprPlus.cpp \
+    Expr/ExprMult.cpp \
+    Expr/ExprPar.cpp
 
 HEADERS += \
     Automate.h \
@@ -35,4 +38,7 @@ HEADERS += \
     Etats/E6.h \
     Etats/E7.h \
     Etats/E8.h \
-    Etats/E9.h
+    Etats/E9.h \
+    Expr/ExprPlus.h \
+    Expr/ExprMult.h \
+    Expr/ExprPar.h
