@@ -17,7 +17,8 @@ public:
 		PAR_OUVRANT,
 		PAR_FERMANT,
 		MULT,
-		PLUS
+        PLUS,
+        END
 	};
 
 	Symbole(Type id);

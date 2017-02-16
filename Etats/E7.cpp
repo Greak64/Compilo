@@ -18,10 +18,10 @@ bool E7::transition(Automate& automate, Symbole * symbole)
         automate.decalage(symbole, new E5);
         break;
 	default :
-        Expr *s1 = automate.popSymbole();
-        automate.popEtDetruireSymbole();
-        Expr *s2 = automate.popSymbole();
-        automate.reduction(3, new ExprPlus(s1, s2));
+        //Expr *s1 = automate.popSymbole();
+        //automate.popEtDetruireSymbole();
+        //Expr *s2 = automate.popSymbole();
+        //automate.reduction(3, new ExprPlus(s1, s2));
 		break;
 	}
 	return true;

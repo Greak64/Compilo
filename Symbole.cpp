@@ -44,7 +44,7 @@ Symbole::operator int() const
 
 Symbole::Type Symbole::getId() const
 {
-		return id;
+    return id;
 }
 
 

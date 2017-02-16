@@ -13,7 +13,7 @@
 class E5 : public Etat
 {
 public:
-	E5() : Etat("Etat_0"){};
+    E5() : Etat("Etat_5"){}
 	~E5() = default;
 	bool transition(Automate & automate, Symbole * symbole);
 };
