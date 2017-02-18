@@ -1,6 +1,9 @@
 #include "ExprPar.h"
 
-ExprPar::ExprPar()
-{
+ExprPar::ExprPar(Expr *expression) : expr(expression)
+{}
 
+int ExprPar::eval() const
+{
+    return expr->eval();
 }

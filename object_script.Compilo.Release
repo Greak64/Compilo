@@ -2,7 +2,6 @@ INPUT(
 ./release\main.o
 ./release\Automate.o
 ./release\Lexer.o
-./release\Nombre.o
 ./release\Symbole.o
 ./release\E0.o
 ./release\E1.o
@@ -17,4 +16,5 @@ INPUT(
 ./release\ExprPlus.o
 ./release\ExprMult.o
 ./release\ExprPar.o
+./release\Nombre.o
 );

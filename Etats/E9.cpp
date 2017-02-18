@@ -6,22 +6,23 @@
  */
 
 #include "E9.h"
+#include "Expr/ExprPar.h"
 
 bool E9::transition(Automate& automate, Symbole * symbole)
 {
-    switch(symbole->getId())
+    auto tmp = symbole->getId();
+    if(tmp == Symbole::VAL || tmp == Symbole::PAR_OUVRANT)
     {
-    case Symbole::PLUS :
-    case Symbole::MULT :
-    case Symbole::PAR_FERMANT :
-    case Symbole::END :
-        automate.reduction(3,new Symbole(Symbole::EXPR));
-        break;
-    default :
         std::cout << "Error non handle transition " << name << " ";
         symbole->print();
         std::cout<< std::endl;
         return false;
     }
+
+    automate.popEtDetruireSymbole();
+    Expr * exp = (Expr *) automate.popSymbole();
+    automate.popEtDetruireSymbole();
+    automate.reduction(3,new ExprPar(exp));
+
     return true;
 }

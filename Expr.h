@@ -13,11 +13,12 @@
 
 class Expr : public Symbole {
 public:
-    Expr() : Symbole(EXPR) {}
+    Expr(int pvaleur = 0) : Symbole(EXPR), valeur(pvaleur) {}
     virtual ~Expr() {}
-    virtual int eval() const = 0;
+    virtual int eval() const {return valeur;}
 
 protected:
+    int valeur;
 
 };
 

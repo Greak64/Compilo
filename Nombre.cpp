@@ -1,17 +1,9 @@
-/*
- * Nombre.cpp
- *
- *  Created on: 14 févr. 2017
- *      Author: ostein
- */
-
 #include "Nombre.h"
 
-Nombre::Nombre(int pvaleur) : Symbole(Type::VAL), valeur(pvaleur)
+Nombre::Nombre(int pvaleur) : Symbole(VAL), valeur(pvaleur)
 {}
 
-Nombre::~Nombre()
+int Nombre::getValeur()
 {
-	// TODO Auto-generated destructor stub
+    return valeur;
 }
-

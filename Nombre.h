@@ -15,7 +15,9 @@ class Nombre : public Symbole
 
 public:
 	Nombre(int pvaleur);
-	virtual ~Nombre();
+    ~Nombre() = default;
+
+    int getValeur();
 
 protected:
 	int valeur;

@@ -8,6 +8,7 @@
 #include "Automate.h"
 #include "Etat.h"
 #include "Etats/E0.h"
+#include "Expr.h"
 
 #include <iostream>
 #include <string>
@@ -59,12 +60,10 @@ void Automate::lancer()
         }
     }
 
-    std::cout << "\nExpression -->  " << std::endl;
-    for(auto s : pileSymboles)
-    {
-        s->print();
-        std::cout << std::endl;
-    }
+    Expr * result = (Expr*) pileSymboles.back();
+
+
+    std::cout << "\nResultat : " << result->eval() << std::endl;
 }
 
 void Automate::decalage(Symbole* symbole, Etat* etat)

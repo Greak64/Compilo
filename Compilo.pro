@@ -6,7 +6,6 @@ CONFIG -= qt
 SOURCES += main.cpp \
     Automate.cpp \
     Lexer.cpp \
-    Nombre.cpp \
     Symbole.cpp \
     Etats/E0.cpp \
     Etats/E1.cpp \
@@ -20,7 +19,8 @@ SOURCES += main.cpp \
     Etats/E9.cpp \
     Expr/ExprPlus.cpp \
     Expr/ExprMult.cpp \
-    Expr/ExprPar.cpp
+    Expr/ExprPar.cpp \
+    Nombre.cpp
 
 HEADERS += \
     Automate.h \

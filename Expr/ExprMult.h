@@ -7,8 +7,8 @@ class ExprMult : public Expr
 {
 public:
     ExprMult(Expr *e1, Expr *e2);
-    virtual ~ExprMult();
-    virtual int eval() const;
+    ~ExprMult();
+    int eval() const;
 
 protected:
     Expr *expr1;

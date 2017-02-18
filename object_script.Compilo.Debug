@@ -2,7 +2,6 @@ INPUT(
 ./debug\main.o
 ./debug\Automate.o
 ./debug\Lexer.o
-./debug\Nombre.o
 ./debug\Symbole.o
 ./debug\E0.o
 ./debug\E1.o
@@ -17,4 +16,5 @@ INPUT(
 ./debug\ExprPlus.o
 ./debug\ExprMult.o
 ./debug\ExprPar.o
+./debug\Nombre.o
 );
