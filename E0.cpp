@@ -16,18 +16,19 @@ bool E0::transition(Automate& automate, Symbole * symbole)
 	switch(symbole->getId())
 	{
 	case Symbole::EXPR :
-		automate.decalage(symbole, new E1);
+        automate.decalage(symbole, new E1);
 		break;
 	case Symbole::PAR_OUVRANT :
-		automate.decalage(symbole, new E2);
+        automate.decalage(symbole, new E2);
 		break;
     case Symbole::VAL :
-		automate.decalage(symbole, new E3);
+        automate.decalage(symbole, new E3);
 		break;
     default :
-        std::cout << "Error non handle transition " << name << " ";
+        std::cout << "Error : transition not handled with state " << name << " and symbol ";
         symbole->print();
-        std::cout<< std::endl;
+        std::cout << std::endl;
+        delete symbole;
         return false;
         break;
 	}

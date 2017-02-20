@@ -22,7 +22,10 @@ public:
     Symbole* popSymbole();
     void popEtDetruireSymbole();
 
-	void lancer();
+    // Permet d'indiquer que l'expression entrée a pu être analysée sans erreur de syntaxe
+    void termineSansErreur();
+
+    void lancer(); // Lance l'analyse de l'expression entrée
 	void decalage(Symbole * symbole, Etat * etat);
     void reduction(int n, Symbole * symbole);
 
@@ -31,6 +34,7 @@ private:
 	std::vector<Etat *> pileEtats;
 
 	Lexer lex;
+    bool aRencontreUneErreur; // 'true' s'il y a une erreur de syntaxe
 };
 
 #endif /* AUTOMATE_H_ */

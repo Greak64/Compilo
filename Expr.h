@@ -13,9 +13,9 @@
 
 class Expr : public Symbole {
 public:
-    Expr(int pvaleur = 0) : Symbole(EXPR), valeur(pvaleur) {}
-    virtual ~Expr() {}
-    virtual int eval() const {return valeur;}
+    Expr(int pvaleur = 0);
+    virtual ~Expr();
+    virtual int eval() const;
 
 protected:
     int valeur;

@@ -32,15 +32,16 @@ Symbole * Lexer::prochainSymbole()
 void Lexer::ajouterSymbole(Symbole * symbole)
 {
     --consomFlux;
+    delete prochain;
     prochain = symbole;
 }
 
 void Lexer::lecture()
 {
-    ++consomFlux;
-    // On regarde le prochain character
-    // Si il n'y en a pas, on peut sortir avec le symbole END
+    // On regarde le prochain caractère
+    // S'il n'y en a pas, on peut sortir avec le symbole END
     do{
+        ++consomFlux;
         if(!nextToken())
         {
             prochain = new Symbole(Symbole::Type::END);
@@ -52,7 +53,7 @@ void Lexer::lecture()
     analyseToken();
 }
 
-bool Lexer:: setFlux(std::string stream)
+bool Lexer::setFlux(std::string stream)
 {
     if(!stream.empty())
     {

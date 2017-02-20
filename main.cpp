@@ -1,7 +1,5 @@
 #include "Automate.h"
-
 #include "Lexer.h"
-
 #include "Symbole.h"
 
 #include <iostream>

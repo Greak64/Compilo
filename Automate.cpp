@@ -7,13 +7,13 @@
 
 #include "Automate.h"
 #include "Etat.h"
-#include "Etats/E0.h"
+#include "E0.h"
 #include "Expr.h"
 
 #include <iostream>
 #include <string>
 
-Automate::Automate()
+Automate::Automate() : aRencontreUneErreur(true)
 {
     pileEtats.push_back(new E0());
 }
@@ -37,10 +37,16 @@ void Automate::popEtDetruireSymbole()
     pileSymboles.pop_back();
 }
 
+void Automate::termineSansErreur()
+{
+    aRencontreUneErreur = false;
+}
+
 void Automate::lancer()
 {
+    std::cout << "Entrez la formule a analyser :" << std::endl;
     std::string chaine;
-    std::getline(std::cin,chaine);
+    std::getline(std::cin, chaine);
 
     bool run = lex.setFlux(chaine);
 
@@ -51,19 +57,21 @@ void Automate::lancer()
         Symbole * symbole = lex.prochainSymbole();
         Etat * state = pileEtats.back();
 
+        /* Dé-commenter pour suivre les transitions d'état dans la console
         state->print();
         symbole->print();
         std::cout << "\n----------------------" << std::endl;
-        if(!state->transition(*this, symbole))
-        {
-            run = false;
-        }
+        */
+
+        run = state->transition(*this, symbole);
     }
 
-    Expr * result = (Expr*) pileSymboles.back();
 
-
-    std::cout << "\nResultat : " << result->eval() << std::endl;
+    if (!aRencontreUneErreur)
+    {
+        Expr * result = (Expr*) pileSymboles.back();
+        std::cout << "\nResultat : " << result->eval() << std::endl;
+    }
 }
 
 void Automate::decalage(Symbole* symbole, Etat* etat)
@@ -77,7 +85,7 @@ void Automate::reduction(int n, Symbole* symbole)
 {
     for (int i = 0; i < n; ++i)
     {
-        //delete pileEtats.back();
+        delete pileEtats.back();
         pileEtats.pop_back();
     }
     lex.ajouterSymbole(symbole);

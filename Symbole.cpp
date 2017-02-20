@@ -35,26 +35,27 @@ Symbole::~Symbole() {}
 void Symbole::print() const
 {
     switch(id)
-    {case VAL:
-        std::cout << " val ";
+    {
+    case VAL:
+        std::cout << "val";
         break;
     case EXPR:
-        std::cout << " E ";
+        std::cout << "E";
         break;
     case PAR_OUVRANT:
-        std::cout << " ( ";
+        std::cout << "(";
         break;
     case PAR_FERMANT:
-        std::cout << " ) ";
+        std::cout << ")";
         break;
     case MULT:
-        std::cout << " * ";
+        std::cout << "*";
         break;
     case PLUS:
-        std::cout << " + ";
+        std::cout << "+";
         break;
     case END:
-        std::cout << " $ ";
+        std::cout << "$";
         break;
     }
 }

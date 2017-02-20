@@ -10,7 +10,7 @@ public:
     ~ExprPlus();
     int eval() const;
 
-protected:
+private:
     Expr *expr1;
     Expr *expr2;
 };

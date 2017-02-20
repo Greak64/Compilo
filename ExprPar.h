@@ -1,5 +1,5 @@
-#ifndef EXPRPAR_H
-#define EXPRPAR_H
+#ifndef EXPR_PAR_H
+#define EXPR_PAR_H
 
 #include "Expr.h"
 
@@ -7,7 +7,7 @@ class ExprPar : public Expr
 {
 public:
     ExprPar(Expr * expression);
-    ~ExprPar() = default;
+    ~ExprPar();
     int eval() const;
 
 private:
@@ -15,4 +15,4 @@ private:
 
 };
 
-#endif // EXPRPAR_H
+#endif // EXPR_PAR_H

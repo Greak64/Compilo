@@ -8,13 +8,13 @@
 #include "E7.h"
 #include "E5.h"
 #include "Expr.h"
-#include "Expr/ExprPlus.h"
+#include "ExprPlus.h"
 
 bool E7::transition(Automate& automate, Symbole * symbole)
 {
     auto tmp = symbole->getId();
 
-    if(tmp == Symbole::MULT )
+    if(tmp == Symbole::MULT)
     {
         automate.decalage(symbole, new E5);
     }
@@ -29,9 +29,10 @@ bool E7::transition(Automate& automate, Symbole * symbole)
     }
     else
     {
-        std::cout << "Error non handle transition " << name << " ";
+        std::cout << "Error : transition not handled with state " << name << " and symbol ";
         symbole->print();
-        std::cout<< std::endl;
+        std::cout << std::endl;
+        delete symbole;
         return false;
     }
 

@@ -1,15 +1,16 @@
 /*
- * E2.cpp
+ * E4.cpp
  *
  *  Created on: 14 févr. 2017
  *      Author: ostein
  */
 
+#include "E4.h"
 #include "E2.h"
 #include "E3.h"
-#include "E6.h"
+#include "E7.h"
 
-bool E2::transition(Automate& automate, Symbole * symbole)
+bool E4::transition(Automate& automate, Symbole * symbole)
 {
 	switch(symbole->getId())
 	{
@@ -20,12 +21,13 @@ bool E2::transition(Automate& automate, Symbole * symbole)
         automate.decalage(symbole, new E2);
 		break;
     case Symbole::EXPR :
-        automate.decalage(symbole, new E6);
+        automate.decalage(symbole, new E7);
 		break;
     default :
-        std::cout << "Error non handle transition " << name << " ";
+        std::cout << "Error : transition not handled with state " << name << " and symbol ";
         symbole->print();
-        std::cout<< std::endl;
+        std::cout << std::endl;
+        delete symbole;
         return false;
         break;
 	}

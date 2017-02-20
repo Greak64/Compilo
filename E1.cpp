@@ -20,12 +20,15 @@ bool E1::transition(Automate& automate, Symbole * symbole)
         automate.decalage(symbole, new E5);
         break;
     case Symbole::END :
+        delete symbole;
+        automate.termineSansErreur(); // Il n'y a pas eu d'erreur de syntaxe
         return false; // On accepte !
         break;
     default :
-        std::cout << "Error non handle transition " << name << " ";
+        std::cout << "Error : transition not handled with state " << name << " and symbol ";
         symbole->print();
-        std::cout<< std::endl;
+        std::cout << std::endl;
+        delete symbole;
         return false;
         break;
 	}

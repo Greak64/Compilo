@@ -6,16 +6,17 @@
  */
 
 #include "E8.h"
-#include "Expr/ExprMult.h"
+#include "ExprMult.h"
 
 bool E8::transition(Automate& automate, Symbole * symbole)
 {
     auto tmp = symbole->getId();
     if(tmp == Symbole::VAL || tmp == Symbole::PAR_OUVRANT)
     {
-        std::cout << "Error non handle transition " << name << " ";
+        std::cout << "Error : transition not handled with state " << name << " and symbol ";
         symbole->print();
-        std::cout<< std::endl;
+        std::cout << std::endl;
+        delete symbole;
         return false;
     }
 

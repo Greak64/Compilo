@@ -24,9 +24,10 @@ bool E6::transition(Automate& automate, Symbole * symbole)
         automate.decalage(symbole, new E9);
 		break;
     default :
-        std::cout << "Error non handle transition " << name << " ";
+        std::cout << "Error : transition not handled with state " << name << " and symbol ";
         symbole->print();
-        std::cout<< std::endl;
+        std::cout << std::endl;
+        delete symbole;
         return false;
         break;
 	}

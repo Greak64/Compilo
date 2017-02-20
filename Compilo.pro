@@ -7,20 +7,22 @@ SOURCES += main.cpp \
     Automate.cpp \
     Lexer.cpp \
     Symbole.cpp \
-    Etats/E0.cpp \
-    Etats/E1.cpp \
-    Etats/E2.cpp \
-    Etats/E3.cpp \
-    Etats/E4.cpp \
-    Etats/E5.cpp \
-    Etats/E6.cpp \
-    Etats/E7.cpp \
-    Etats/E8.cpp \
-    Etats/E9.cpp \
-    Expr/ExprPlus.cpp \
-    Expr/ExprMult.cpp \
-    Expr/ExprPar.cpp \
-    Nombre.cpp
+    Nombre.cpp \
+    Etat.cpp \
+    Expr.cpp \
+    E0.cpp \
+    E1.cpp \
+    E2.cpp \
+    E3.cpp \
+    E4.cpp \
+    E5.cpp \
+    E6.cpp \
+    E7.cpp \
+    E8.cpp \
+    E9.cpp \
+    ExprMult.cpp \
+    ExprPar.cpp \
+    ExprPlus.cpp
 
 HEADERS += \
     Automate.h \
@@ -29,16 +31,16 @@ HEADERS += \
     Lexer.h \
     Nombre.h \
     Symbole.h \
-    Etats/E0.h \
-    Etats/E1.h \
-    Etats/E2.h \
-    Etats/E3.h \
-    Etats/E4.h \
-    Etats/E5.h \
-    Etats/E6.h \
-    Etats/E7.h \
-    Etats/E8.h \
-    Etats/E9.h \
-    Expr/ExprPlus.h \
-    Expr/ExprMult.h \
-    Expr/ExprPar.h
+    E0.h \
+    E1.h \
+    E2.h \
+    E3.h \
+    E4.h \
+    E5.h \
+    E6.h \
+    E7.h \
+    E8.h \
+    E9.h \
+    ExprMult.h \
+    ExprPar.h \
+    ExprPlus.h

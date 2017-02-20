@@ -14,13 +14,13 @@
 
 class Etat {
 public:
-    Etat(std::string pname) : name(pname){}
+    Etat(std::string pname);
 	virtual ~Etat() = default;
-    void print() const { std::cout << name << "  "; }
+    void print() const;
 	virtual bool transition(Automate & automate, Symbole * symbole) = 0;
 
 protected:
-	std::string name;
+    std::string name; // Nom de l'état (ex : "Etat_1")
 };
 
 #endif /* ETAT_H_ */
